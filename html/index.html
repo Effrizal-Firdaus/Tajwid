@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ilmu Tajwid</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" href="../img/tajwid.png">
+</head>
+<body>
+
+<svg class="geo" viewBox="0 0 400 400" fill="none">
+  <polygon points="200,20 380,380 20,380" stroke="#C9A84C" stroke-width="1" fill="none"/>
+  <circle cx="200" cy="200" r="160" stroke="#1E4D3B" stroke-width=".6" fill="none"/>
+  <circle cx="200" cy="200" r="100" stroke="#1E4D3B" stroke-width=".3" fill="none"/>
+</svg>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="bismillah">بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيْمِ</div>
+    <div class="ornament">
+      <div class="orn-line"></div>
+      <div class="orn-diamond"></div>
+      <div class="orn-line r"></div>
+    </div>
+    <div class="v-badge">✨ Versi 1.0 — Lengkap & Akurat</div>
+    <h1>Tajwid Checker</h1>
+    <p>Pelajari hukum tajwid lengkap: Mad, Ghoiru Mad,<br>Idghom, dan Hukum Ro' — berdasarkan materi fiqih tajwid</p>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="progress-wrap" id="progressWrap">
+    <div class="progress-steps" id="progressSteps"></div>
+    <div class="progress-label" id="progressLabel">Pilih Bab</div>
+  </div>
+
+  <!-- SCREEN: WELCOME (Pembuka) -->
+  <div id="screenWelcome">
+    <div class="welcome-wrap">
+
+      <!-- Hero Arab -->
+      <div class="welcome-hero">
+        <div class="welcome-glow"></div>
+        <div class="welcome-arab">اِقْرَأْ</div>
+        <div class="welcome-arab-sub">Iqra' — Bacalah</div>
+      </div>
+
+      <!-- Tag -->
+      <div class="welcome-tag">Belajar Tajwid Bersama-sama</div>
+
+      <!-- Title -->
+      <h2 class="welcome-title">
+        Masih Bingung<br>Cara Baca <em>Al-Qur'an</em>?
+      </h2>
+
+      <!-- Divider -->
+      <div class="welcome-divider"><div class="wd-diamond"></div></div>
+
+      <!-- Desc -->
+      <p class="welcome-desc">
+        Tenang, kamu <strong>nggak sendirian!</strong> Yuk belajar tajwid bareng! 
+        pelan-pelan, santai, tapi tetap akurat. Dari Mad sampai Hukum Ro',
+        semua ada di sini lengkap dengan pengertian, cara baca, dan contohnya.
+      </p>
+
+      <!-- Features -->
+      <div class="welcome-features">
+        <div class="wf-item">
+          <div class="wf-item-icon">1.</div>
+          <div class="wf-item-text">
+            <span class="wf-item-label">Hukum Mad</span>
+            <span class="wf-item-count">15 hukum</span>
+          </div>
+        </div>
+        <div class="wf-item">
+          <div class="wf-item-icon">2.</div>
+          <div class="wf-item-text">
+            <span class="wf-item-label">Ghoiru Mad</span>
+            <span class="wf-item-count">6 hukum</span>
+          </div>
+        </div>
+        <div class="wf-item">
+          <div class="wf-item-icon">3.</div>
+          <div class="wf-item-text">
+            <span class="wf-item-label">Hukum Idghom</span>
+            <span class="wf-item-count">3 hukum</span>
+          </div>
+        </div>
+        <div class="wf-item">
+          <div class="wf-item-icon">4.</div>
+          <div class="wf-item-text">
+            <span class="wf-item-label">Hukum Ro'</span>
+            <span class="wf-item-count">2 hukum</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <button class="mulai-btn" onclick="mulai()">
+        Mulai Belajar
+        <span class="mulai-arrow">→</span>
+      </button>
+
+      <p class="welcome-note">
+       Lengkap <span>·</span> Berdasarkan materi fiqih tajwid
+      </p>
+
+    </div>
+  </div>
+
+  <!-- SCREEN: MODE (Pilih BAB) -->
+  <div id="screenMode" class="hidden">
+    <div class="card">
+      <div class="card-title">Pilih Bab yang ingin dipelajari</div>
+      <div class="card-desc">Terdapat 4 bab utama dalam ilmu tajwid.</div>
+      <div class="options-grid" id="babOptions"></div>
+      <button class="lanjut-btn" id="lanjutMode" disabled onclick="lanjutMode()">Lanjut →</button>
+    </div>
+  </div>
+
+  <!-- SCREEN: SUB BAB -->
+  <div id="screenSub" class="hidden">
+    <button class="back-btn" onclick="goBack()">← Kembali</button>
+    <div class="card">
+      <div class="card-title" id="subTitle"></div>
+      <div class="card-desc" id="subDesc"></div>
+      <div class="options-grid" id="subOptions"></div>
+      <button class="lanjut-btn" id="lanjutSub" disabled onclick="lanjutSub()">Lanjut →</button>
+    </div>
+  </div>
+
+  <!-- SCREEN: DETAIL -->
+  <div id="screenDetail" class="hidden">
+    <button class="back-btn" onclick="goBack()">← Kembali</button>
+    <div class="card">
+      <div class="card-title" id="detailTitle"></div>
+      <div class="card-desc" id="detailDesc"></div>
+      <div class="options-grid" id="detailOptions"></div>
+      <button class="lanjut-btn" id="lanjutDetail" disabled onclick="lanjutDetail()">Lanjut →</button>
+    </div>
+  </div>
+
+  <!-- SCREEN: RESULT -->
+  <div id="screenResult" class="hidden">
+    <button class="back-btn" onclick="goBack()">← Kembali</button>
+    <div id="resultContainer"></div>
+    <button class="reset-btn" onclick="reset()">🔄 Mulai dari Awal</button>
+    <div class="disclaimer">⚠️ <strong>Catatan:</strong> Materi ini bersifat informatif dan edukatif berdasarkan kitab ilmu tajwid. Untuk pendalaman lebih lanjut, silakan belajar langsung kepada guru atau ustadz yang berpengalaman.</div>
+  </div>
+
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<div style="text-align:center;padding:20px 0 32px;position:relative;z-index:1;">
+  <div style="display:inline-flex;align-items:center;gap:6px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:#9A7A2E;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);border-radius:100px;padding:6px 16px;">
+    Made with By <a href="https://instagram.com/effrizal_17" target="_blank" style="color:#1E4D3B;font-weight:700;text-decoration:none;">@effrizal_17</a>
+  </div>
+</div>
+
+<script src="../js/app.js"></script>
+<script>
+// Build BAB options on load
+(function() {
+  const c = document.getElementById('babOptions');
+  BABS.forEach(b => {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    btn.dataset.id = b.id;
+    btn.innerHTML = `<span class="option-icon">${b.icon}</span><div class="option-text"><strong>${b.label}</strong><span>${b.desc}</span></div><div class="option-check">✓</div>`;
+    btn.onclick = () => {
+      document.querySelectorAll('#babOptions .option-btn').forEach(el => el.classList.remove('selected'));
+      btn.classList.add('selected');
+      S._pendingBab = b.id;
+      document.getElementById('lanjutMode').disabled = false;
+    };
+    c.appendChild(btn);
+  });
+})();
+</script>
+</body>
+</html>
