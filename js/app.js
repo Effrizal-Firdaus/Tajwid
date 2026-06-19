@@ -647,9 +647,9 @@ const RES = {
     cara:"Huruf pertama dimasukkan ke huruf kedua yang sejenis makhrojnya. Tidak mendengung kecuali ب bertemu م.",
     contoh:[
       {arab:'وَإِنْ عُدتُّمْ عُدْنَا',      ket:'Contoh 1 — دْ bertemu ت'},
-      {arab:'قَدْ أُجِيبَتْ دَّعْوَتُكُمَا', ket:'Contoh 2 — تْ bertemu دَّ'},
+      {arab:'قَدْ أُجِيبَتْ دَّعْوَتُكُمَا',   ket:'Contoh 2 — تْ bertemu دَّ'},
       {arab:'وَكَفَرَ طَّآئِفَةٌ',          ket:'Contoh 3 — رَ طَّ (ط bertemu ط)'},
-      {arab:'وَلَئِنْ بَسَطْتَّ',             ket:'Contoh 4 — طْ bertemu ت'},
+      {arab:'وَلَئِنْ ۢ بَسَطْتَّ',          ket:'Contoh 4 — طْ bertemu ت'},
     ],
     catatan:"Hanya hilang qolqolahnya — sifat isti'la dan ithbaq ط tetap.",
   },
@@ -662,7 +662,7 @@ const RES = {
     def:"Ro' dibaca tebal bila berharokat fathah atau dhomah.",
     cara:"Cara membaca: pengucapan Ro' diikuti bibir agak maju ke depan (tebal/berat).",
     contoh:[
-      {arab:'رَفَعَ',       ket:'Contoh 1 — رَ fathah'},
+      {arab:'رَفَعَ',     ket:'Contoh 1 — رَ fathah'},
       {arab:'أَلَمْ تَرَ',  ket:'Contoh 2 — رَ fathah'},
       {arab:'رُفِعَتْ',    ket:'Contoh 3 — رُ dhomah'},
       {arab:'لِيَشْتَرُوا', ket:'Contoh 4 — رُ dhomah'},
